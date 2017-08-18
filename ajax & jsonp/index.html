@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ajax && jsonp test</title>
+</head>
+
+<body>
+  <script type="text/javascript" src="./index.js"></script>
+
+  <script type="text/javascript">
+    request({
+      url: 'http://api.test.com/requestTest.php',
+      type: 'GET',
+      data: {
+        'test': 'hello world'
+      },
+      success: function(response) {
+        console.dir(response)
+      },
+      error: function(error) {
+        console.dir(error)
+      }
+    })
+  </script>
+
+  <script type="text/javascript">
+    request({
+      url: 'http://api.test.com/jsonpTest.php',
+      jsonp: 'jsonpCallback',
+      data: { 'test': 'hello world' },
+      success: function (res) {
+        console.dir(res)
+      },
+      error: function (error) {
+        console.dir(error)
+      }
+    })
+  </script>
+</body>
+
+</html>
